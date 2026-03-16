@@ -106,7 +106,7 @@ export const LandingHero = () => {
           </Link>
           <a href="#features">
             <Button variant="ghost" className="h-12 px-8 text-zinc-400 hover:text-white rounded-full text-base border border-white/10 hover:bg-white/5 hover:border-white/20 transition-all">
-              See what's possible
+              See what&apos;s possible
             </Button>
           </a>
         </div>

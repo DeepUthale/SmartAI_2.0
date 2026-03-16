@@ -149,7 +149,7 @@ export const LandingContent = () => {
             Start free, <span className="gradient-text">scale up</span>
           </h2>
           <p className="text-zinc-400 max-w-xl mx-auto text-lg">
-            No hidden fees. Upgrade when you're ready.
+            No hidden fees. Upgrade when you&apos;re ready.
           </p>
         </div>
 
