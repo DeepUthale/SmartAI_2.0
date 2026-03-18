@@ -12,27 +12,27 @@ import { Button } from "./ui/button";
 const features = [
   {
     icon: MessageSquare, title: "Conversation AI",
-    description: "Natural, context-aware conversations powered by GPT-3.5. Ask anything, brainstorm ideas, get expert answers instantly.",
+    description: "Natural, context-aware conversations powered by GPT-4.1. Ask anything, brainstorm ideas, get expert answers instantly.",
     color: "text-violet-400", bg: "bg-violet-500/10", border: "border-violet-500/20", glow: "group-hover:shadow-violet-500/10",
   },
   {
     icon: ImageIcon, title: "Image Generation",
-    description: "Turn text into stunning visuals with DALL-E. Choose resolution, quantity and style for professional results.",
+    description: "Turn text into stunning visuals with DALL-E 3. Choose resolution, quantity and style for professional results.",
     color: "text-pink-400", bg: "bg-pink-500/10", border: "border-pink-500/20", glow: "group-hover:shadow-pink-500/10",
   },
   {
     icon: VideoIcon, title: "Video Synthesis",
-    description: "Generate high-quality videos from text prompts using Zeroscope v2 XL. Cinematic AI video, on demand.",
+    description: "Generate high-quality videos from text prompts using WanVideo. Cinematic AI video, on demand.",
     color: "text-orange-400", bg: "bg-orange-500/10", border: "border-orange-500/20", glow: "group-hover:shadow-orange-500/10",
   },
   {
     icon: Music, title: "Music Creation",
-    description: "Describe a mood or genre and Riffusion composes an original track for you. Your own AI music studio.",
+    description: "Describe a mood or genre and MusicGen composes an original track for you. Your own AI music studio.",
     color: "text-emerald-400", bg: "bg-emerald-500/10", border: "border-emerald-500/20", glow: "group-hover:shadow-emerald-500/10",
   },
   {
     icon: Code, title: "Code Generation",
-    description: "Generate clean, documented code in any language. Debug, explain, and refactor — your AI pair programmer.",
+    description: "Generate clean, documented code in any language. Debug, explain, and refactor with your AI pair programmer.",
     color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20", glow: "group-hover:shadow-blue-500/10",
   },
   {
@@ -44,15 +44,15 @@ const features = [
 
 /* ── Steps ──────────────────────────────────────────── */
 const steps = [
-  { n: "01", title: "Create your account", desc: "Sign up free in seconds — no credit card required." },
+  { n: "01", title: "Create your account", desc: "Sign up free in seconds, no credit card required." },
   { n: "02", title: "Choose a tool",        desc: "Pick from Conversation, Image, Video, Music or Code." },
   { n: "03", title: "Describe your idea",   desc: "Type a prompt and SmartAI generates your content." },
   { n: "04", title: "Download & share",     desc: "Save your creations, iterate, and share with the world." },
 ];
 
 /* ── Pricing ────────────────────────────────────────── */
-const freePlan  = ["5 AI generations total", "All 5 AI tools", "Standard speed", "Community support"];
-const proPlan   = ["Unlimited AI generations", "All 5 AI tools", "Priority speed", "Email support", "Early access to new tools", "No watermarks"];
+const freePlan  = ["7 AI generations total", "All 5 AI tools", "Standard speed", "Community support"];
+const proPlan   = ["Unlimited AI generations", "All 5 AI tools", "Priority speed", "Email support", "Early access to new tools"];
 
 /* ── Team ───────────────────────────────────────────── */
 

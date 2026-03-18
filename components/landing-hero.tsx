@@ -70,7 +70,7 @@ export const LandingHero = () => {
         {/* Badge */}
         <div className="inline-flex items-center gap-x-2 bg-violet-500/10 border border-violet-500/25 rounded-full px-4 py-1.5 text-sm text-violet-300 animate-fade-up mt-1.5">
           <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-          <span>5 AI models · One platform · Free to start</span>
+          <span>5 AI tools · One platform · Free to start</span>
         </div>
 
         {/* Headline */}
@@ -93,7 +93,7 @@ export const LandingHero = () => {
 
         {/* Subtitle */}
         <p className="animate-fade-up delay-200 text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed font-light">
-          SmartAI brings together the most powerful AI models — GPT, DALL-E, Zeroscope, Riffusion — in one beautifully designed workspace.
+          SmartAI brings together the most powerful AI models: GPT-4.1, DALL-E 3, WanVideo, and MusicGen in one beautifully designed workspace.
         </p>
 
         {/* CTAs */}
@@ -112,7 +112,7 @@ export const LandingHero = () => {
         </div>
 
         <p className="animate-fade-up delay-400 text-zinc-600 text-sm">
-          No credit card required · 5 free generations · Cancel anytime
+          No credit card required · 7 free generations · Cancel anytime
         </p>
 
         {/* ── App preview card ───────────────────────── */}

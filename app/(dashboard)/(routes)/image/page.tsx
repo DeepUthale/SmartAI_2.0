@@ -14,17 +14,17 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { Empty } from "@/components/ui/empty";
 import { Loader } from "@/components/loader";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useProModal } from "@/hooks/use-pro-modal";
+import { useToolStore } from "@/hooks/use-tool-store";
 import toast from "react-hot-toast";
 
 const ImagePage = () => {
     const proModal = useProModal();
     const router = useRouter();
-    const [images, setImages] = useState<string[]>([]);
+    const { images, setImages } = useToolStore();
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),

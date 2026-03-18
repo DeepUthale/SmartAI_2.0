@@ -5,7 +5,6 @@ import axios from "axios";
 import { Code, Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { ChatCompletionMessageParam as ChatCompletionMessage } from "openai/resources/chat/index.mjs";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import ReactMarkdown from "react-markdown";
 import * as z from "zod";
@@ -21,13 +20,14 @@ import { UserAvatar } from "@/components/user-avatar";
 import { cn } from "@/lib/utils";
 
 import { useProModal } from "@/hooks/use-pro-modal";
+import { useToolStore } from "@/hooks/use-tool-store";
 import { toast } from "react-hot-toast";
 import { formSchema } from "./constants";
 
 const CodePage = () => {
     const router = useRouter();
     const proModal = useProModal();
-    const [messages, setMessages] = useState<ChatCompletionMessage[]>([]);
+    const { codeMessages: messages, setCodeMessages: setMessages } = useToolStore();
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -45,7 +45,7 @@ const CodePage = () => {
             const newMessages = [...messages, userMessage];
 
             const response = await axios.post("/api/code", { messages: newMessages });
-            setMessages((current) => [...current, userMessage, response.data]);
+            setMessages([...messages, userMessage, response.data]);
             form.reset();
         } catch (error: any) {
             if (error?.response?.status === 403) proModal.onOpen();

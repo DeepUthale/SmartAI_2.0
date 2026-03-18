@@ -13,7 +13,6 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { ChatCompletionMessageParam as ChatCompletionMessage } from "openai/resources/chat/index.mjs";
 import { Empty } from "@/components/ui/empty";
 import { Loader } from "@/components/loader";
@@ -21,12 +20,13 @@ import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 import { useProModal } from "@/hooks/use-pro-modal";
+import { useToolStore } from "@/hooks/use-tool-store";
 import toast from "react-hot-toast";
 
 const ConversationPage = () => {
   const proModal = useProModal();
   const router = useRouter();
-  const [messages, setMessages] = useState<ChatCompletionMessage[]>([]);
+  const { conversationMessages: messages, setConversationMessages: setMessages } = useToolStore();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,7 +47,7 @@ const ConversationPage = () => {
         messages: newMessages,
       });
 
-      setMessages((current) => [...current, userMessage, response.data]);
+      setMessages([...messages, userMessage, response.data]);
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {

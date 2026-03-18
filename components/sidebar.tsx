@@ -40,10 +40,10 @@ const Sidebar = ({ apiLimitCount = 0, isPro = false }: SidebarProps) => {
           href="/dashboard"
           className="flex items-center gap-x-3 px-3 py-2 rounded-xl hover:bg-accent transition-colors group"
         >
-          <div className="relative w-10 h-10 shrink-0 transition-transform group-hover:scale-105 duration-200">
+          <div className="relative w-14 h-14 shrink-0 transition-transform group-hover:scale-105 duration-200">
             <Image fill alt="Logo" src="/logo.png" />
           </div>
-          <span className={cn("text-base font-bold text-foreground tracking-tight", montserrat.className)}>
+          <span className={cn("text-xl font-bold text-foreground tracking-tight", montserrat.className)}>
             SmartAI
           </span>
         </Link>
