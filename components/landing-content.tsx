@@ -54,8 +54,6 @@ const steps = [
 const freePlan  = ["7 AI generations total", "All 5 AI tools", "Standard speed", "Community support"];
 const proPlan   = ["Unlimited AI generations", "All 5 AI tools", "Priority speed", "Email support", "Early access to new tools"];
 
-/* ── Team ───────────────────────────────────────────── */
-
 /* ── Section wrapper ────────────────────────────────── */
 const Section = ({ id, children, className }: { id?: string; children: React.ReactNode; className?: string }) => (
   <section id={id} className={cn("px-6 py-24 max-w-6xl mx-auto", className)}>
@@ -64,7 +62,7 @@ const Section = ({ id, children, className }: { id?: string; children: React.Rea
 );
 
 const SectionBadge = ({ children }: { children: React.ReactNode }) => (
-  <div className="inline-flex items-center gap-x-2 bg-white/[0.04] border border-white/10 rounded-full px-4 py-1.5 text-sm text-zinc-400 mb-6">
+  <div className="inline-flex items-center gap-x-2 bg-slate-100 border border-slate-200 dark:bg-white/[0.04] dark:border-white/10 rounded-full px-4 py-1.5 text-sm text-slate-600 dark:text-zinc-400 mb-6">
     <Sparkles className="w-3.5 h-3.5 text-violet-400" />
     {children}
   </div>
@@ -72,7 +70,7 @@ const SectionBadge = ({ children }: { children: React.ReactNode }) => (
 
 export const LandingContent = () => {
   return (
-    <div className="text-white">
+    <div className="text-slate-900 dark:text-white">
 
       {/* ── Features ─────────────────────────────────── */}
       <Section id="features">
@@ -82,32 +80,33 @@ export const LandingContent = () => {
             Five AI tools.<br />
             <span className="gradient-text">One workspace.</span>
           </h2>
-          <p className="text-zinc-400 max-w-xl mx-auto text-lg">
+          <p className="text-slate-500 dark:text-zinc-400 max-w-xl mx-auto text-lg">
             All the AI capabilities you need, beautifully designed and ready to use.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f) => (
+          {features.map((f, i) => (
             <div
               key={f.title}
               className={cn(
-                "group relative rounded-2xl p-6 border bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-default",
+                "group relative rounded-2xl p-6 border bg-white hover:bg-slate-50 dark:bg-white/[0.02] dark:hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-default animate-fade-up-fast",
                 f.border, f.glow
               )}
+              style={{ animationDelay: `${i * 0.05}s` }}
             >
               <div className={cn("w-11 h-11 rounded-xl flex items-center justify-center mb-5", f.bg)}>
                 <f.icon className={cn("w-5 h-5", f.color)} />
               </div>
-              <h3 className="font-semibold text-white mb-2">{f.title}</h3>
-              <p className="text-sm text-zinc-400 leading-relaxed">{f.description}</p>
+              <h3 className="font-semibold text-slate-900 dark:text-white mb-2">{f.title}</h3>
+              <p className="text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">{f.description}</p>
             </div>
           ))}
         </div>
       </Section>
 
       {/* ── Divider ───────────────────────────────────── */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent" />
 
       {/* ── How it works ─────────────────────────────── */}
       <Section id="how">
@@ -116,22 +115,18 @@ export const LandingContent = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
             Get started in <span className="gradient-text">minutes</span>
           </h2>
-          <p className="text-zinc-400 max-w-xl mx-auto text-lg">
+          <p className="text-slate-500 dark:text-zinc-400 max-w-xl mx-auto text-lg">
             From sign-up to your first AI creation in under 60 seconds.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, i) => (
-            <div key={step.n} className="relative">
-              {/* Connector line */}
-              {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-5 left-[calc(100%+0px)] w-full h-px bg-gradient-to-r from-white/15 to-transparent z-0" />
-              )}
-              <div className="relative z-10 bg-white/[0.02] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.05] transition-all duration-200">
+            <div key={step.n} className="relative animate-fade-up-fast" style={{ animationDelay: `${i * 0.05}s` }}>
+              <div className="relative z-10 bg-white border border-slate-200 dark:bg-white/[0.02] dark:border-white/10 rounded-2xl p-6 hover:bg-slate-50 dark:hover:bg-white/[0.05] transition-all duration-200">
                 <div className="text-3xl font-black gradient-text mb-4 leading-none">{step.n}</div>
-                <h3 className="font-semibold text-white mb-2 text-sm">{step.title}</h3>
-                <p className="text-xs text-zinc-500 leading-relaxed">{step.desc}</p>
+                <h3 className="font-semibold text-slate-900 dark:text-white mb-2 text-sm">{step.title}</h3>
+                <p className="text-xs text-slate-500 dark:text-zinc-500 leading-relaxed">{step.desc}</p>
               </div>
             </div>
           ))}
@@ -139,7 +134,7 @@ export const LandingContent = () => {
       </Section>
 
       {/* ── Divider ───────────────────────────────────── */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent" />
 
       {/* ── Pricing ──────────────────────────────────── */}
       <Section id="pricing">
@@ -148,32 +143,32 @@ export const LandingContent = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
             Start free, <span className="gradient-text">scale up</span>
           </h2>
-          <p className="text-zinc-400 max-w-xl mx-auto text-lg">
+          <p className="text-slate-500 dark:text-zinc-400 max-w-xl mx-auto text-lg">
             No hidden fees. Upgrade when you&apos;re ready.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {/* Free */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 space-y-6">
+          <div className="rounded-2xl border border-slate-200 bg-white dark:border-white/10 dark:bg-white/[0.02] p-8 space-y-6">
             <div>
-              <p className="text-sm text-zinc-500 font-medium mb-1">Free</p>
+              <p className="text-sm text-slate-500 dark:text-zinc-500 font-medium mb-1">Free</p>
               <div className="flex items-baseline gap-x-1">
-                <span className="text-4xl font-black text-white">$0</span>
-                <span className="text-zinc-500 text-sm">/ forever</span>
+                <span className="text-4xl font-black text-slate-900 dark:text-white">$0</span>
+                <span className="text-slate-400 dark:text-zinc-500 text-sm">/ forever</span>
               </div>
-              <p className="text-zinc-500 text-sm mt-2">Perfect for trying out SmartAI.</p>
+              <p className="text-slate-500 dark:text-zinc-500 text-sm mt-2">Perfect for trying out SmartAI.</p>
             </div>
             <ul className="space-y-3">
               {freePlan.map((item) => (
-                <li key={item} className="flex items-center gap-x-3 text-sm text-zinc-400">
-                  <CheckCircle2 className="w-4 h-4 text-zinc-600 shrink-0" />
+                <li key={item} className="flex items-center gap-x-3 text-sm text-slate-600 dark:text-zinc-400">
+                  <CheckCircle2 className="w-4 h-4 text-slate-400 dark:text-zinc-600 shrink-0" />
                   {item}
                 </li>
               ))}
             </ul>
             <Link href="/sign-up" className="block">
-              <Button variant="outline" className="w-full rounded-xl border-white/10 text-white hover:bg-white/5">
+              <Button variant="outline" className="w-full rounded-xl border-slate-200 text-slate-900 hover:bg-slate-50 dark:border-white/10 dark:text-white dark:hover:bg-white/5">
                 Get started
               </Button>
             </Link>
@@ -187,16 +182,16 @@ export const LandingContent = () => {
               </span>
             </div>
             <div>
-              <p className="text-sm text-violet-300 font-medium mb-1">Pro</p>
+              <p className="text-sm text-violet-600 dark:text-violet-300 font-medium mb-1">Pro</p>
               <div className="flex items-baseline gap-x-1">
-                <span className="text-4xl font-black text-white">$2</span>
-                <span className="text-zinc-500 text-sm">/ month</span>
+                <span className="text-4xl font-black text-slate-900 dark:text-white">$2</span>
+                <span className="text-slate-400 dark:text-zinc-500 text-sm">/ month</span>
               </div>
-              <p className="text-zinc-400 text-sm mt-2">Everything, unlimited, forever.</p>
+              <p className="text-slate-600 dark:text-zinc-400 text-sm mt-2">Everything, unlimited, forever.</p>
             </div>
             <ul className="space-y-3">
               {proPlan.map((item) => (
-                <li key={item} className="flex items-center gap-x-3 text-sm text-zinc-300">
+                <li key={item} className="flex items-center gap-x-3 text-sm text-slate-700 dark:text-zinc-300">
                   <CheckCircle2 className="w-4 h-4 text-violet-400 shrink-0" />
                   {item}
                 </li>
@@ -214,17 +209,17 @@ export const LandingContent = () => {
 
       {/* ── CTA Banner ───────────────────────────────── */}
       <section className="px-6 pb-24">
-        <div className="max-w-4xl mx-auto rounded-3xl border border-white/10 bg-gradient-to-br from-violet-500/10 via-transparent to-pink-500/10 p-12 text-center space-y-6 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto rounded-3xl border border-violet-200 dark:border-white/10 bg-gradient-to-br from-violet-500/10 via-transparent to-pink-500/10 p-12 text-center space-y-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-violet-600/5 to-pink-600/5" />
           <div className="relative">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
               Ready to create with AI?
             </h2>
-            <p className="text-zinc-400 text-lg mb-8 max-w-xl mx-auto">
+            <p className="text-slate-600 dark:text-zinc-400 text-lg mb-8 max-w-xl mx-auto">
               Join thousands of creators using SmartAI to generate content, code, music and more.
             </p>
             <Link href="/sign-up">
-              <Button className="h-12 px-10 bg-white text-black hover:bg-zinc-100 rounded-full text-base font-semibold gap-x-2 shadow-2xl shadow-white/10 transition-all hover:-translate-y-0.5">
+              <Button className="h-12 px-10 bg-violet-600 text-white hover:bg-violet-500 dark:bg-white dark:text-black dark:hover:bg-zinc-100 rounded-full text-base font-semibold gap-x-2 shadow-2xl shadow-violet-500/20 transition-all hover:-translate-y-0.5">
                 Start for free
                 <ArrowRight className="w-4 h-4" />
               </Button>
@@ -234,16 +229,16 @@ export const LandingContent = () => {
       </section>
 
       {/* ── Footer ───────────────────────────────────── */}
-      <footer className="border-t border-white/[0.06] px-6 py-8">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-zinc-600">
+      <footer className="border-t border-slate-200 dark:border-white/[0.06] px-6 py-8">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500 dark:text-zinc-600">
           <div className="flex items-center gap-x-2">
-            <span className="text-white font-semibold">SmartAI</span>
+            <span className="text-slate-900 dark:text-white font-semibold">SmartAI</span>
             <span>·</span>
             <span>© 2026 All rights reserved</span>
           </div>
           <div className="flex items-center gap-x-6">
             {["Privacy", "Terms", "Contact"].map((l) => (
-              <a key={l} href="#" className="hover:text-zinc-300 transition-colors">{l}</a>
+              <a key={l} href="#" className="hover:text-slate-700 dark:hover:text-zinc-300 transition-colors">{l}</a>
             ))}
           </div>
         </div>

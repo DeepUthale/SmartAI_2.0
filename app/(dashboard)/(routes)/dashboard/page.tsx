@@ -13,6 +13,7 @@ import {
   LayoutGrid,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 const tools = [
@@ -68,6 +69,13 @@ const tools = [
 const DashboardPage = () => {
   const router = useRouter();
   const proModal = useProModal();
+  const [sweeping, setSweeping] = useState(false);
+
+  useEffect(() => {
+    const start = setTimeout(() => setSweeping(true), 50);
+    const stop = setTimeout(() => setSweeping(false), 50 + 1100 + (tools.length - 1) * 140);
+    return () => { clearTimeout(start); clearTimeout(stop); };
+  }, []);
 
   return (
     <div className="px-4 lg:px-8 py-8 space-y-10">
@@ -115,7 +123,7 @@ const DashboardPage = () => {
 
       {/* ── Tool grid ────────────────────────────────── */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-        {tools.map((tool) => (
+        {tools.map((tool, i) => (
           <button
             key={tool.href}
             onClick={() => router.push(tool.href)}
@@ -126,7 +134,15 @@ const DashboardPage = () => {
             )}
           >
             {/* Slide-in color fill */}
-            <div className={cn("absolute inset-y-0 left-0 w-full opacity-40 sm:w-0 sm:opacity-100 sm:group-hover:w-full transition-[width] duration-300 ease-out", tool.bg)} />
+            <div
+              className={cn(
+                "absolute inset-y-0 left-0 w-full sm:w-0 sm:opacity-100 sm:group-hover:w-full transition-[width] duration-300 ease-out",
+                sweeping ? "opacity-100" : "opacity-40",
+                tool.bg,
+                sweeping && "animate-card-sweep",
+              )}
+              style={sweeping ? { animationDelay: `${i * 140}ms` } : undefined}
+            />
 
             <div className="relative z-10 p-5 space-y-4">
               {/* Icon + arrow */}

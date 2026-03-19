@@ -90,7 +90,7 @@ const ConversationPage = () => {
                 "rounded-2xl px-4 py-3 text-sm leading-relaxed max-w-[80%]",
                 message.role === "user"
                   ? "bg-violet-600 text-white rounded-tr-sm"
-                  : "bg-white/[0.05] border border-white/10 text-zinc-200 rounded-tl-sm"
+                  : "bg-muted/50 border border-border text-foreground rounded-tl-sm"
               )}
             >
               {typeof message.content === "string" ? message.content : ""}
@@ -103,7 +103,7 @@ const ConversationPage = () => {
             <div className="w-8 h-8 rounded-full bg-violet-500/20 border border-violet-500/30 flex items-center justify-center shrink-0">
               <div className="w-3 h-3 rounded-full border-2 border-transparent border-t-violet-400 animate-spin" />
             </div>
-            <div className="bg-white/[0.05] border border-white/10 rounded-2xl rounded-tl-sm px-4 py-3">
+            <div className="bg-muted/50 border border-border rounded-2xl rounded-tl-sm px-4 py-3">
               <Loader />
             </div>
           </div>
@@ -111,11 +111,11 @@ const ConversationPage = () => {
       </div>
 
       {/* Input */}
-      <div className="px-4 lg:px-8 pb-6 pt-3 pr-20 lg:pr-24 border-t border-white/[0.06]">
+      <div className="px-4 lg:px-8 pb-6 pt-3 pr-20 lg:pr-24 border-t border-border">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex items-center gap-x-2 bg-white/[0.04] border border-white/10 rounded-2xl px-4 py-2 focus-within:border-violet-500/40 transition-colors"
+            className="flex items-center gap-x-2 bg-muted/40 border border-border rounded-2xl px-4 py-2 focus-within:border-violet-500/40 transition-colors"
           >
             <FormField
               name="prompt"
@@ -123,7 +123,7 @@ const ConversationPage = () => {
                 <FormItem className="flex-1">
                   <FormControl>
                     <Input
-                      className="border-0 bg-transparent outline-none focus-visible:ring-0 focus-visible:ring-transparent text-white placeholder:text-zinc-600 text-sm"
+                      className="border-0 bg-transparent outline-none focus-visible:ring-0 focus-visible:ring-transparent text-foreground placeholder:text-muted-foreground text-sm"
                       disabled={isLoading}
                       placeholder="Ask me anything…"
                       {...field}
