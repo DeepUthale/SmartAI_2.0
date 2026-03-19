@@ -70,10 +70,12 @@ const DashboardPage = () => {
   const router = useRouter();
   const proModal = useProModal();
   const [sweeping, setSweeping] = useState(false);
+  const [isPro, setIsPro] = useState<boolean | null>(null);
 
   useEffect(() => {
     const start = setTimeout(() => setSweeping(true), 50);
     const stop = setTimeout(() => setSweeping(false), 50 + 1100 + (tools.length - 1) * 140);
+    fetch("/api/subscription").then(r => r.json()).then(d => setIsPro(d.isPro));
     return () => { clearTimeout(start); clearTimeout(stop); };
   }, []);
 
@@ -95,16 +97,18 @@ const DashboardPage = () => {
             What would you like to create today?
           </p>
         </div>
-        <button
-          onClick={() => proModal.onOpen()}
-          className="self-start sm:self-auto flex items-center gap-x-2 bg-gradient-to-r from-violet-600/20 to-pink-600/20 border border-violet-500/30 hover:border-violet-400/50 rounded-xl px-4 py-2.5 transition-all hover:-translate-y-px group"
-        >
-          <Zap className="w-4 h-4 text-violet-700 fill-violet-700 dark:text-violet-400 dark:fill-violet-400" />
-          <span className="text-sm font-medium text-violet-700 dark:text-violet-300">
-            Upgrade to Pro
-          </span>
-          <ArrowRight className="w-3.5 h-3.5 text-violet-700 dark:text-violet-400 opacity-30 group-hover:opacity-100 transition-all group-hover:translate-x-0.5" />
-        </button>
+        {isPro === false && (
+          <button
+            onClick={() => proModal.onOpen()}
+            className="self-start sm:self-auto flex items-center gap-x-2 bg-gradient-to-r from-violet-600/20 to-pink-600/20 border border-violet-500/30 hover:border-violet-400/50 rounded-xl px-4 py-2.5 transition-all hover:-translate-y-px group"
+          >
+            <Zap className="w-4 h-4 text-violet-700 fill-violet-700 dark:text-violet-400 dark:fill-violet-400" />
+            <span className="text-sm font-medium text-violet-700 dark:text-violet-300">
+              Upgrade to Pro
+            </span>
+            <ArrowRight className="w-3.5 h-3.5 text-violet-700 dark:text-violet-400 opacity-30 group-hover:opacity-100 transition-all group-hover:translate-x-0.5" />
+          </button>
+        )}
       </div>
 
       {/* ── Section label ────────────────────────────── */}

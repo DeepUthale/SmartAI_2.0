@@ -14,8 +14,8 @@ const Navbar = async () => {
 
             <div className="flex items-center gap-x-2 ml-auto">
                 {isPro && (
-                    <div className="hidden sm:flex items-center gap-x-1.5 bg-violet-500/10 border border-violet-500/25 rounded-full px-3 py-1 text-xs font-medium text-violet-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-violet-400 inline-block animate-pulse" />
+                    <div className="hidden sm:flex items-center gap-x-1.5 bg-violet-500/10 border border-violet-500/25 rounded-full px-3 py-1 text-xs font-medium text-violet-700 dark:text-violet-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-violet-700 dark:bg-violet-400 inline-block animate-pulse" />
                         Pro Plan
                     </div>
                 )}
