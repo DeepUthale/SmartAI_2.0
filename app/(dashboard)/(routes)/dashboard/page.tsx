@@ -10,7 +10,6 @@ import {
   Sparkles,
   VideoIcon,
   Zap,
-  LayoutGrid,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -84,12 +83,6 @@ const DashboardPage = () => {
       {/* ── Welcome header ───────────────────────────── */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-1">
-          <div className="flex items-center gap-x-2">
-            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs text-zinc-500 font-medium">
-              All systems operational
-            </span>
-          </div>
           <h1 className="text-2xl md:text-3xl font-bold text-foreground">
             Welcome back!
           </h1>
@@ -197,55 +190,6 @@ const DashboardPage = () => {
         </div>
       </div>
 
-      {/* ── Section label ────────────────────────────── */}
-      <div className="flex items-center gap-x-3">
-        <div className="flex items-center gap-x-2">
-          <LayoutGrid className="w-4 h-4 text-teal-400" />
-          <span className="text-sm font-semibold text-foreground">
-            Platform Overview
-          </span>
-        </div>
-        <div className="flex-1 h-px bg-border" />
-      </div>
-
-      {/* ── Quick stats ──────────────────────────────── */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        {[
-          {
-            label: "AI Models",
-            value: "5",
-            sub: "Available",
-            color: "text-violet-400",
-          },
-          {
-            label: "Free Tier",
-            value: "7",
-            sub: "Generations",
-            color: "text-pink-400",
-          },
-          {
-            label: "Response Time",
-            value: "~2s",
-            sub: "Average",
-            color: "text-emerald-400",
-          },
-          {
-            label: "Pro Plan",
-            value: "$2",
-            sub: "Per month",
-            color: "text-orange-400",
-          },
-        ].map((stat) => (
-          <div
-            key={stat.label}
-            className="rounded-xl border border-border bg-card px-4 py-4 space-y-1"
-          >
-            <p className={cn("text-xl font-bold", stat.color)}>{stat.value}</p>
-            <p className="text-xs font-medium text-foreground">{stat.label}</p>
-            <p className="text-xs text-muted-foreground">{stat.sub}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };

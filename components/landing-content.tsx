@@ -2,7 +2,7 @@
 
 import {
   ArrowRight, CheckCircle2, Code, ImageIcon,
-  MessageSquare, Music, Sparkles, VideoIcon, Zap,
+  MessageSquare, Music, VideoIcon, Zap,
 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -61,13 +61,6 @@ const Section = ({ id, children, className }: { id?: string; children: React.Rea
   </section>
 );
 
-const SectionBadge = ({ children }: { children: React.ReactNode }) => (
-  <div className="inline-flex items-center gap-x-2 bg-slate-100 border border-slate-200 dark:bg-white/[0.04] dark:border-white/10 rounded-full px-4 py-1.5 text-sm text-slate-600 dark:text-zinc-400 mb-6">
-    <Sparkles className="w-3.5 h-3.5 text-violet-400" />
-    {children}
-  </div>
-);
-
 export const LandingContent = () => {
   return (
     <div className="text-slate-900 dark:text-white">
@@ -75,7 +68,6 @@ export const LandingContent = () => {
       {/* ── Features ─────────────────────────────────── */}
       <Section id="features">
         <div className="text-center mb-16">
-          <SectionBadge>Everything you need</SectionBadge>
           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
             Five AI tools.<br />
             <span className="gradient-text">One workspace.</span>
@@ -111,7 +103,6 @@ export const LandingContent = () => {
       {/* ── How it works ─────────────────────────────── */}
       <Section id="how">
         <div className="text-center mb-16">
-          <SectionBadge>Simple by design</SectionBadge>
           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
             Get started in <span className="gradient-text">minutes</span>
           </h2>
@@ -139,7 +130,6 @@ export const LandingContent = () => {
       {/* ── Pricing ──────────────────────────────────── */}
       <Section id="pricing">
         <div className="text-center mb-16">
-          <SectionBadge>Simple pricing</SectionBadge>
           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
             Start free, <span className="gradient-text">scale up</span>
           </h2>

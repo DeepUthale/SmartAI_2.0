@@ -120,7 +120,7 @@ export const ProModal = () => {
             className="w-full bg-gradient-to-r from-violet-600 to-pink-600 hover:from-violet-500 hover:to-pink-500 text-white border-0 h-11 text-sm font-semibold gap-x-2 shadow-lg shadow-violet-500/20"
           >
             <Zap className="w-4 h-4 fill-white" />
-            {loading ? "Redirecting…" : "Upgrade — $2 / month"}
+            {loading ? "Redirecting..." : "Upgrade for $2 / month"}
           </Button>
         </DialogFooter>
       </DialogContent>

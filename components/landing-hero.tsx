@@ -29,7 +29,7 @@ export const LandingHero = () => {
           }}
         />
 
-        {/* Grid — subtle in dark, hidden in light */}
+        {/* Grid: subtle in dark, hidden in light */}
         <div className="absolute inset-0 opacity-[0.04] dark:block hidden"
           style={{
             backgroundImage:
@@ -39,42 +39,16 @@ export const LandingHero = () => {
         />
 
         {/* Orbs */}
-        <div className="absolute top-1/4 right-[15%] w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[120px] animate-pulse-glow" />
-        <div className="absolute bottom-1/4 left-[10%]  w-[500px] h-[500px] bg-pink-600/8  rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: "2.5s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-indigo-600/5 rounded-full blur-[80px]  animate-float" />
-
-        {/* Floating dots */}
-        {[
-          { top: "18%", left: "12%", size: 3, delay: "0s" },
-          { top: "28%", left: "88%", size: 2, delay: "1s" },
-          { top: "72%", left: "7%",  size: 4, delay: "2s" },
-          { top: "60%", left: "92%", size: 2, delay: "0.5s" },
-          { top: "45%", left: "3%",  size: 3, delay: "1.5s" },
-          { top: "82%", left: "78%", size: 2, delay: "3s" },
-        ].map((dot, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-violet-500/50 dark:bg-white/30 animate-pulse-glow"
-            style={{
-              top: dot.top, left: dot.left,
-              width: dot.size, height: dot.size,
-              animationDelay: dot.delay,
-            }}
-          />
-        ))}
+        <div className="absolute top-1/4 right-[15%] w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 left-[10%]  w-[500px] h-[500px] bg-pink-600/8  rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-indigo-600/5 rounded-full blur-[80px]" />
       </div>
 
       {/* ── Hero content ───────────────────────────── */}
       <div className="relative z-10 text-center max-w-5xl mx-auto space-y-8">
 
-        {/* Badge */}
-        <div className="inline-flex items-center gap-x-2 bg-violet-500/10 border border-violet-500/25 rounded-full px-4 py-1.5 text-sm text-violet-700 dark:text-violet-300 animate-fade-up mt-1.5">
-          <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-          <span>5 AI tools · One platform · Free to start</span>
-        </div>
-
         {/* Headline */}
-        <div className="animate-fade-up delay-100 space-y-3">
+        <div className="animate-fade-up delay-100 space-y-3 mt-16">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-extrabold leading-[1.02] tracking-tight text-slate-900 dark:text-white">
             Create anything with
           </h1>
